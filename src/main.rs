@@ -31,17 +31,17 @@ impl Component for VestingApp {
 
     fn view(&self, _ctx: &Context<Self>) -> Html {
         html! {
-            <BrowserRouter>
+            <HashRouter>
                 <Switch<Route> render={switch} />
-            </BrowserRouter>
+            </HashRouter>
         }
     }
 }
 
 fn switch(routes: Route) -> Html {
     match routes {
-        Route::Vesting => html! { <VestingComponent/> },
-        Route::Home => {
+        Route::Home => html! { <VestingComponent/> },
+        Route::Vesting => {
             html! {
             <div>
                 <h1>{"Polkadot Utilities by W3F TechEd team"}</h1>
