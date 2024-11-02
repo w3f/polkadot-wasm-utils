@@ -104,7 +104,7 @@ impl Component for VestingComponent {
             Message::OnlineClientCreated(online_client) => {
                 self.online_client = Some(online_client);
                 self.stage = SigningStage::EnterMessage;
-                self.set_message("".into());
+                self.set_message("16dDKP5hFoXVj7syxVe9GfQF5zSKWJ8QJ7aUuTjo4gy8zbKn".into());
             }
             Message::ChangeMessage(message) => {
                 self.set_message(message);
@@ -303,7 +303,7 @@ impl Component for VestingComponent {
 
                 html!(
                     <>
-                        <div class="mb"><b>{"Enter the \"Polkadot\" address which always starts with \"1\" :"}</b></div>
+                        <div class="mb"><b>{"Replace the \"Polkadot\" address below with the target account :"}</b></div>
                         <input size = 60 oninput={on_input} class="mb" value={AttrValue::from(self.message.clone())}/>
                         <button onclick={get_accounts_click}> {"=> Select an Account for Signing"} </button>
                     </>
@@ -376,7 +376,6 @@ impl Component for VestingComponent {
 
         html! {
             <div>
-                <a href="/"> <button>{"<= Back"}</button></a>
                 <h1>{"Unlock Vested DOT"}</h1>
                 {message_html}
                 {signer_account_html}
