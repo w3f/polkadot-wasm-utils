@@ -10,6 +10,9 @@ use wasm_bindgen_futures::JsFuture;
 #[subxt::subxt(runtime_metadata_path = "artifacts/polkadot_metadata_full.scale")]
 pub mod polkadot {}
 
+#[subxt::subxt(runtime_metadata_path = "artifacts/paseo_metadata_full.scale")]
+pub mod paseo {}
+
 #[wasm_bindgen]
 extern "C" {
     #[wasm_bindgen(js_name = getAccounts)]

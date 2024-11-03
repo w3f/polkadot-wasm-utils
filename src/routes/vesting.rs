@@ -88,7 +88,7 @@ impl Component for VestingComponent {
         ctx.link().send_future(OnlineClient::<PolkadotConfig>::from_url("wss://polkadot-rpc.publicnode.com").map(|res| {
             match res {
                 Ok(online_client) => Message::OnlineClientCreated(online_client),
-                Err(err) => Message::Error(anyhow!("Online Client could not be created. Make sure you have a local node running:\n{err}")),
+                Err(err) => Message::Error(anyhow!("Online Client to Polkadot network could not be created:\n{err}")),
             }
         }));
         VestingComponent {

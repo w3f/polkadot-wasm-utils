@@ -1,0 +1,113 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #242a35;
+}
+
+html {
+  background-color: #242a35;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+h1 {
+  font-weight: bolder;
+  color: #242a35;
+}
+
+body {
+  width: 800px;
+  max-width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  min-height: 100%;
+  margin: 0px;
+  padding: 16px;
+  background-color: #ffffff;
+}
+
+p {
+  white-space: pre-wrap;
+  border-radius: 8px;
+  padding: 8px;
+  color: white;
+}
+
+button {
+  font-size: large;
+  padding: 8px 16px;
+  font-weight: bold;
+  background-color: #242a35;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  display: block;
+  margin-top: 8px;
+}
+
+a {
+  font-size: medium;
+  font-weight: bold;
+  color: #242a35;
+}
+
+a:link {
+  color: #242a35;
+}
+
+/* visited link */
+a:visited {
+  color: #242a35;
+}
+
+/* mouse over link */
+a:hover {
+  color: #ff2670;
+}
+
+button:hover {
+  background-color: #ff2670;
+}
+
+input {
+  font-size: large;
+  background-color: white;
+  color: #242a35;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+
+.mb {
+  margin-bottom: 12px;
+}
+
+small {
+  color: #24cc85;
+}
+
+.error {
+  color: red;
+  background: black;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateX(20px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.loading {
+  animation: loading 0.7s infinite;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../../index.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAIA;EACE;EACA,OAJK;;;AAOP;EACE,kBARK;EASL;EACA;EACA;;;AAGF;EACE;EACA,OAhBK;;;AAmBP;EACE;EACA;EACA;EACA;EACA;EACA;EACA,kBA5BQ;;;AA+BV;EACE;EACA;EACA;EACA;;;AAGF;EACE;EACA;EACA;EACA,kBAxCK;EAyCL;EACA;EACA;EACA;EACA;EACA;;;AAIF;EACE;EACA;EACA,OArDK;;;AAwDP;EACE,OAzDK;;;AA6DP;AACA;EACE,OA/DK;;;AAkEP;AACA;EACE,OArEU;;;AAyEZ;EACE,kBA1EU;;;AA6EZ;EACE;EACA;EACA,OA/EK;EAgFL;EACA;;;AAGF;EACE;;;AAGF;EACE;;;AAGF;EACE;EACA;EACA;EACA;;;AAGF;EACE;IACE;IACA;;EAEF;IACE;IACA;;EAEF;IACE;IACA;;;AAIJ;EACE%22,%22file%22:%22index.css%22%7D */

@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="/index-19baf2936db99b6a.css" integrity="sha384&#x2D;2GyXZ79079VAOpXBsF6VsFCXfJYOG0OemS3pgsxrdCaRYKAWkzrds6ZonRKibKJq"/>
-    <script nonce="n2wzBfgDSOhHa3U31bAlDg==">/**
+    <link rel="stylesheet" href="/index-77823c9058aefd31.css" integrity="sha384&#x2D;vH0j4&#x2B;tJIhLSOHkJmBJvS2FJYcOydZadipBnTJ1gUtLEdtUCnfuRPrwCZ6paJ6ev"/>
+    <script nonce="ogvR2VpqEtGBEdtF28JIBA==">/**
  * The `@polkadot/extension-dapp` package can be dynamically imported.
  * Usually it is wise to use a package manager like npm or yarn to install it as a dependency.
  *
@@ -35,7 +35,7 @@ let getPolkadotJsExtensionMod = (() => {
  */
 async function getAccounts() {
     const extensionMod = await getPolkadotJsExtensionMod();
-    await extensionMod.web3Enable("Subxt Example App");
+    await extensionMod.web3Enable("Polkadot Utilities App");
     const allAccounts = await extensionMod.web3Accounts();
     const accountObjects = allAccounts.map((account) => ({
         name: account.meta.name, // e.g. "Alice"
@@ -94,11 +94,11 @@ async function signPayload(payloadAsStr, source, address) {
 }
 </script>
     <title>Polkadot Utils</title>
-  <link rel="modulepreload" href="/polkadot_utils-3b203f13520af4ab.js" crossorigin=anonymous integrity="sha384-52XFBYeuw5G1ltxH+QoMup578WHtv/CWM53RTFDjBTR9TiK5S6MKy87E/VosGhqE"><link rel="preload" href="/polkadot_utils-3b203f13520af4ab_bg.wasm" crossorigin=anonymous integrity="sha384-y3Cnc9ciAZGvjXXZPuDpQQgX+pnGJ1dIVBsjS2qXgAFTEBBqdZ1X0jwYgoHZ2wNo" as="fetch" type="application/wasm"></head>
+  <link rel="modulepreload" href="/polkadot_utils-322fd19e32d2d0c9.js" crossorigin=anonymous integrity="sha384-FSwsl1GGdLvRWfAtVbeRB44YfY/7ve9BTpP5+7EerKkSLNiq041P2Oa+01jK2rXx"><link rel="preload" href="/polkadot_utils-322fd19e32d2d0c9_bg.wasm" crossorigin=anonymous integrity="sha384-WNgPRx17Nk/xwqrYUmG2OkawUiFfD0jR5szru5qdYx3erA2+n4fbn9W+Lb2k13Cb" as="fetch" type="application/wasm"></head>
   <body>
-<script type="module" nonce="yerm5rb20UHsiG0EqbTFVA==">
-import init, * as bindings from '/polkadot_utils-3b203f13520af4ab.js';
-const wasm = await init('/polkadot_utils-3b203f13520af4ab_bg.wasm');
+<script type="module" nonce="DjFcQPL+FpCHfWMTusO0nQ==">
+import init, * as bindings from '/polkadot_utils-322fd19e32d2d0c9.js';
+const wasm = await init('/polkadot_utils-322fd19e32d2d0c9_bg.wasm');
 
 
 window.wasmBindings = bindings;

@@ -1,4 +1,5 @@
 use routes::vesting::VestingComponent;
+use crate::routes::on_demand::OnDemandComponent;
 use yew::prelude::*;
 use yew_router::prelude::*;
 
@@ -9,6 +10,8 @@ mod services;
 pub enum Route {
     #[at("/vesting")]
     Vesting,
+    #[at("/ondemand")]
+    OnDemand,
     #[at("/")]
     Home,
     #[not_found]
@@ -26,9 +29,14 @@ mod pages {
                 <h1>{"Polkadot Utilities by W3F TechEd team"}</h1>
                 <HashRouter>
                     <Link<Route> to={Route::Vesting}>
-                        <a> <button>{"Unlock vested balance"}</button></a>
+                        <button>{"Vesting"}</button>
                     </Link<Route>>
                 </HashRouter>
+                <HashRouter>
+                    <Link<Route> to={Route::OnDemand}>
+                        <button>{"On-demand Parachain"}</button>
+                    </Link<Route>>
+            </HashRouter>
             </div> 
         }
     }
@@ -36,6 +44,11 @@ mod pages {
     #[function_component(Vesting)]
     pub fn vesting() -> Html {
          html! { <VestingComponent/> }
+    }
+
+    #[function_component(OnDemand)]
+    pub fn vesting() -> Html {
+         html! { <OnDemandComponent/> }
     }
 
     #[function_component(NotFound)]
@@ -66,6 +79,10 @@ pub fn vesting_app() -> Html {
                 <Link<Route> classes={classes!("button")} to={Route::Vesting}>
                     { "Vesting" }
                 </Link<Route>>
+                { " | " }
+                <Link<Route> classes={classes!("button")} to={Route::OnDemand}>
+                    { "On-demand" }
+                </Link<Route>>
             </div>
 
             <main>
@@ -82,6 +99,7 @@ fn switch(routes: Route) -> Html {
     match routes {
         Route::Home => html! { <pages::Home /> },
         Route::Vesting => html! { <pages::Vesting /> },
+        Route::OnDemand => html! { <pages::OnDemand /> },
         Route::NotFound => html! { <pages::NotFound /> },
     }
 }
