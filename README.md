@@ -3,11 +3,7 @@
 This is a WASM app using the [Yew UI framework](https://yew.rs/) using Rust based [Subxt](https://github.com/paritytech/subxt) library.
 Deployed to [https://w3f.github.io/polkadot-utils](https://w3f.github.io/polkadot-utils/#/).
 
-To run the app locally we first install Trunk, a WASM bundler:
-
-```
-cargo install --locked trunk
-```
+## Run locally
 
 Update Rust:
 
@@ -15,11 +11,19 @@ Update Rust:
 rustup update
 ```
 
+To run the app locally we first install Trunk, a WASM bundler:
+
+```
+cargo install --locked trunk
+```
+
+
 Run the app locally with:
 
 ```
 trunk serve --open
 ```
+
 ## List of Utilities
 
 ### Unlocking vested DOT on a specified account
