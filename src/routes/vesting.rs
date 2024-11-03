@@ -5,7 +5,6 @@ use subxt::{OnlineClient, PolkadotConfig};
 
 use subxt::config::DefaultExtrinsicParamsBuilder;
 use subxt::ext::codec::{Decode, Encode};
-use subxt::tx::Payload as _;
 use subxt::tx::SubmittableExtrinsic;
 use subxt::utils::{AccountId32, MultiSignature};
 
@@ -15,21 +14,12 @@ use yew::prelude::*;
 
 pub struct VestingComponent {
     message: String,
-    remark_call_bytes: Vec<u8>,
     online_client: Option<OnlineClient<PolkadotConfig>>,
     stage: SigningStage,
 }
 
 impl VestingComponent {
-    /// # Panics
-    /// panics if self.online_client is None.
     fn set_message(&mut self, message: String) {
-        let remark_call = polkadot::tx().system().remark(message.as_bytes().to_vec());
-        let online_client = self.online_client.as_ref().unwrap();
-        let remark_call_bytes = remark_call
-            .encode_call_data(&online_client.metadata())
-            .unwrap();
-        self.remark_call_bytes = remark_call_bytes;
         self.message = message;
     }
 }
@@ -55,7 +45,7 @@ pub enum SubmittingStage {
     },
     Submitting,
     Success {
-        remark_event: polkadot::system::events::ExtrinsicSuccess,
+        success_event: polkadot::system::events::ExtrinsicSuccess,
     },
     Error(anyhow::Error),
 }
@@ -74,7 +64,7 @@ pub enum Message {
     ),
     SubmitSigned,
     ExtrinsicFinalized {
-        remark_event: polkadot::system::events::ExtrinsicSuccess,
+        success_event: polkadot::system::events::ExtrinsicSuccess,
     },
     ExtrinsicFailed(anyhow::Error),
 }
@@ -95,7 +85,6 @@ impl Component for VestingComponent {
             message: "".to_string(),
             stage: SigningStage::CreatingOnlineClient,
             online_client: None,
-            remark_call_bytes: vec![],
         }
     }
 
@@ -219,18 +208,18 @@ impl Component for VestingComponent {
                         )
                         .await
                         {
-                            Ok(remark_event) => Message::ExtrinsicFinalized { remark_event },
+                            Ok(success_event) => Message::ExtrinsicFinalized { success_event },
                             Err(err) => Message::ExtrinsicFailed(err),
                         }
                     });
                 }
             }
-            Message::ExtrinsicFinalized { remark_event } => {
+            Message::ExtrinsicFinalized { success_event } => {
                 if let SigningStage::SigningSuccess {
                     submitting_stage, ..
                 } = &mut self.stage
                 {
-                    *submitting_stage = SubmittingStage::Success { remark_event }
+                    *submitting_stage = SubmittingStage::Success { success_event }
                 }
             }
             Message::ExtrinsicFailed(err) => {
@@ -350,8 +339,8 @@ impl Component for VestingComponent {
                     SubmittingStage::Submitting => {
                         html!(<div class="loading"><b>{"Submitting Extrinsic... (please wait a few seconds)"}</b></div>)
                     }
-                    SubmittingStage::Success { remark_event } => {
-                        html!(<div style="overflow-wrap: break-word;"> <b>{"Successfully submitted Extrinsic. Event:"}</b> <br/> {format!("{:?}", remark_event)} </div>)
+                    SubmittingStage::Success { success_event } => {
+                        html!(<div style="overflow-wrap: break-word;"> <b>{"Successfully submitted Extrinsic. Event:"}</b> <br/> {format!("{:?}", success_event)} </div>)
                     }
                     SubmittingStage::Error(err) => {
                         html!(<div class="error"> {"Error: "} {err.to_string()} </div>)
