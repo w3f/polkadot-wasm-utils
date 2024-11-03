@@ -8,6 +8,12 @@ To run the app locally we first install Trunk, a WASM bundler:
 cargo install --locked trunk
 ```
 
+Update Rust:
+
+```
+rustup update
+```
+
 Run the app locally with:
 
 ```
