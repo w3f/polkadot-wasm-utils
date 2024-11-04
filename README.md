@@ -1,7 +1,7 @@
-# Polkadot Wasm Utilities by W3F TechEd Team
+# Polkadot Wasm Utilities
 
 This is a WASM app using the [Yew UI framework](https://yew.rs/) using Rust based [Subxt](https://github.com/paritytech/subxt) library.
-Deployed to [https://w3f.github.io/polkadot-utils](https://w3f.github.io/polkadot-utils/#/).
+Deployed to [https://w3f.github.io/polkadot-utils](https://w3f.github.io/polkadot-utils/#/). Mantained by W3F Technical Education team.
 
 ## Run locally
 
