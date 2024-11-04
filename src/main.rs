@@ -26,7 +26,7 @@ mod pages {
     pub fn home() -> Html {
         html! {
             <div>  
-                <h1>{"Polkadot Utilities by W3F TechEd team"}</h1>
+                <h1>{"Polkadot Wasm Utilities"}</h1>
                 <HashRouter>
                     <Link<Route> to={Route::Vesting}>
                         <button>{"Vesting"}</button>
@@ -89,6 +89,9 @@ pub fn vesting_app() -> Html {
                 <Switch<Route> render={switch} />
             </main>
             <footer class="footer">
+            <p><a href="https://github.com/w3f/polkadot-wasm-utils" target="_blank">{"Github repo"}
+            </a></p>
+            <p>{"Maintained by W3F Technical Education Team" }</p>
             </footer>
         </HashRouter>
     }

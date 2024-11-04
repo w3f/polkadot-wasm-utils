@@ -295,6 +295,7 @@ impl Component for OnDemandComponent {
                         <input size = 20 oninput={on_input} class="mb" value={AttrValue::from(self.message.clone())}/>
                         <button onclick={get_accounts_click}> {"Sign with an account with PAS"} </button>
                         <p><a href="https://faucet.polkadot.io/" target="_blank">{"Get PAS tokens from faucet"}</a></p>
+                        <p><a href="https://web3educhain.xyz/" target="_blank">{"Learn how to launch an On-demand Parachain"}</a></p>
                     </>
                 )
             }
