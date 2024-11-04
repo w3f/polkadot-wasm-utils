@@ -29,7 +29,7 @@ p {
   white-space: pre-wrap;
   border-radius: 8px;
   padding: 8px;
-  color: white;
+  color: #242a35;
 }
 
 button {
@@ -108,4 +108,9 @@ small {
 }
 .loading {
   animation: loading 0.7s infinite;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
 }
