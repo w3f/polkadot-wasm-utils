@@ -34,3 +34,7 @@ Allows you to call `vesting().vest_other(destination)` and sign the transaction 
 
 Allows you to call `on_demand().place_order_keep_alive(max_amount, para_id)` and sign the transaction using an account from your browser extension.
 
+### Submit Remark with Event on Polkadot Network
+
+Allows you to call `system().remark_with_event(message)` and sign the transaction using an account from your browser extension.
+
