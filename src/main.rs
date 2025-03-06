@@ -1,5 +1,6 @@
 use routes::vesting::VestingComponent;
 use crate::routes::on_demand::OnDemandComponent;
+use crate::routes::remark_event::RemarkComponent;
 use yew::prelude::*;
 use yew_router::prelude::*;
 
@@ -12,6 +13,8 @@ pub enum Route {
     Vesting,
     #[at("/ondemand")]
     OnDemand,
+    #[at("/remark")]
+    RemarkEvent,
     #[at("/")]
     Home,
     #[not_found]
@@ -36,7 +39,12 @@ mod pages {
                     <Link<Route> to={Route::OnDemand}>
                         <button>{"On-demand Parachain"}</button>
                     </Link<Route>>
-            </HashRouter>
+                 </HashRouter>
+                <HashRouter>
+                 <Link<Route> to={Route::RemarkEvent}>
+                     <button>{"Remark with Event"}</button>
+                 </Link<Route>>
+                </HashRouter>
             </div> 
         }
     }
@@ -47,8 +55,13 @@ mod pages {
     }
 
     #[function_component(OnDemand)]
-    pub fn vesting() -> Html {
+    pub fn on_demand() -> Html {
          html! { <OnDemandComponent/> }
+    }
+
+    #[function_component(RemarkEvent)]
+    pub fn remark_event() -> Html {
+         html! { <RemarkComponent/> }
     }
 
     #[function_component(NotFound)]
@@ -83,6 +96,10 @@ pub fn vesting_app() -> Html {
                 <Link<Route> classes={classes!("button")} to={Route::OnDemand}>
                     { "On-demand" }
                 </Link<Route>>
+                { " | " }
+                <Link<Route> classes={classes!("button")} to={Route::RemarkEvent}>
+                    { "Remark" }
+                </Link<Route>>
             </div>
 
             <main>
@@ -103,6 +120,7 @@ fn switch(routes: Route) -> Html {
         Route::Home => html! { <pages::Home /> },
         Route::Vesting => html! { <pages::Vesting /> },
         Route::OnDemand => html! { <pages::OnDemand /> },
+        Route::RemarkEvent => html! { <pages::RemarkEvent /> },
         Route::NotFound => html! { <pages::NotFound /> },
     }
 }
