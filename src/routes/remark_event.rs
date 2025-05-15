@@ -339,7 +339,7 @@ impl Component for RemarkComponent {
                         html!(<div class="loading"><b>{"Submitting Extrinsic... (please wait a few seconds)"}</b></div>)
                     }
                     SubmittingStage::Success { success_event } => {
-                        html!(<div style="overflow-wrap: break-word;"> <b>{"Successfully submitted Extrinsic. Vested DOT should be unlocked:"}</b> <br/> {format!("{:?}", success_event)} </div>)
+                        html!(<div style="overflow-wrap: break-word;"> <b>{"Successfully submitted Extrinsic. On-chain remark submitted:"}</b> <br/> {format!("{:?}", success_event)} </div>)
                     }
                     SubmittingStage::Error(err) => {
                         html!(<div class="error"> {"Error: "} {err.to_string()} </div>)
